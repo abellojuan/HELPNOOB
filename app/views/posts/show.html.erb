@@ -1,0 +1,23 @@
+ <tr>
+   
+    <th> <%= link_to @post.title, @post.url %> </th>
+    <th> <%= @post.comments.length%></th>
+
+   
+  </tr>
+
+<form>
+  <fieldset>
+     <label>Comment here</label>
+    <input type="text" placeholder="Type something…">
+    <span class="help-block"></span>
+   
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+</form>
+
+
+ <% @post.comments.each do |comment| %>
+ 	<p> <%= comment.content %> </p>
+ <% end %>
+

@@ -1,0 +1,22 @@
+<h1>Noobs problems</h1>
+ 
+<table>
+  <tr>
+    
+    <th>Title</th>
+    <th>Comments</th>
+    
+  </tr>
+ 
+<% @posts.each do |post| %>
+  <tr>
+   
+    <th> <%= link_to post.title, post.url %> </th>
+    <th> <%= post.comments.length%></th>
+          
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
