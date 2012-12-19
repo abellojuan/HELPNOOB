@@ -6,18 +6,21 @@
    
   </tr>
 
-<form>
-  <fieldset>
-     <label>Comment here</label>
-    <input type="text" placeholder="Type something…">
-    <span class="help-block"></span>
-   
-    <button type="submit" class="btn">Submit</button>
-  </fieldset>
-</form>
+ <%=  form_for( [@post, @comment]) do|f| %>
+	
+	  <fieldset>
+	     <label>Comment here</label>
+	    <%= f.text_field :content %>
 
+	    <span class="help-block"></span>
+	   
+	    <%= f.submit "save!" %>
+	  </fieldset>
+	
+<% end %>
 
- <% @post.comments.each do |comment| %>
- 	<p> <%= comment.content %> </p>
- <% end %>
+	 <% @post.comments.each do |comment| %>
+	 	<p> <%= comment.content %> </p>
+	 <% end %>
+
 

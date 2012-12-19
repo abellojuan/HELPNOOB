@@ -9,15 +9,29 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post=Post.where(slug: params[:id]).first
+		@post=Post.find(params[:id])
+		@comment=@post.comments.new
 
 		respond_to	do |format|
 			    format.html  # show.html.erb
 			    format.json  { render :json => @posts }
 			end
-        
+       
 	end	
 
-	
+
+	def new
+		@post = Post.new
+		respond_to	do |format|
+			    format.html  
+			    format.json  { render :json => @posts }
+		end
+	end
+
+	def create
+		@post=Post.new(params[:post])
+		@post.save
+		redirect_to new_post_path
+	end
 
 end

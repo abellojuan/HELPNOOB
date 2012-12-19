@@ -1,0 +1,24 @@
+
+
+
+<%= form_for(@post) do|f| %>
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" >Title</label>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" >URL</label>
+    <div class="controls">
+      <%= f.text_field :url %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">      
+      <%= f.submit "save!" %>
+    </div>
+  </div>
+</form>
+<% end %>
