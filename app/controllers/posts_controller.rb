@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
 	  @posts = Post.all
+	 @upvote =Upvote.new
 	 
 	  respond_to do |format|
 	    format.html  # index.html.erb

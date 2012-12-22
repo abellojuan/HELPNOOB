@@ -1,8 +1,8 @@
-<h1>Noobs pxxroblems</h1>
+<h1>Noobs problems</h1>
  
 <table>
   <tr>
-    
+    <th>Upvotes</th>
     <th>Title</th>
     <th>Comments</th>
     
@@ -10,13 +10,24 @@
  
 <% @posts.each do |post| %>
   <tr>
-   
+  	<%=  form_for( [post, @upvote]) do|f| %>
+	
+	  <fieldset>
+	   <%= submit_tag "Upvote"%>
+	  </fieldset>
+	
+<% end %>
+    <th> <%= post.upvotes.length %>
+
+
+
+    </th>
     <th> <%= link_to post.title, post.url %> </th>
-    <th> <%= post.comments.length %> comments</th>
+    <th> <%= link_to post.comments.length, post_path(post) %></th>
           
   </tr>
 <% end %>
 </table>
  
 <br />
- 
+
