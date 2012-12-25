@@ -2,32 +2,32 @@
  
 <table>
   <tr>
-    <th>Upvotes</th>
-    <th>Title</th>
-    <th>Comments</th>
+    
+
     
   </tr>
  
 <% @posts.each do |post| %>
-  <tr>
-  	<%=  form_for( [post, @upvote]) do|f| %>
-	
-	  <fieldset>
-	   <%= submit_tag "Upvote"%>
-	  </fieldset>
-	
+  
+
+
+				<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
+						<i class="icon-thumbs-up"></i>
+				<% end %>
+
+				<strong><span> <%= post.vote_number %> </span></strong>
+
+				<%= link_to post_votes_path(post, direction: 'down'), :method => :post do %>
+						<i class="icon-thumbs-down"></i>
+				<% end %>
+
+				<span> </span><%= link_to post.title, post.url %> 
+				(<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %> )
+			</br>
+			</br>
+
+
 <% end %>
-    <th> <%= post.upvotes.length %>
 
-
-
-    </th>
-    <th> <%= link_to post.title, post.url %> </th>
-    <th> <%= link_to post.comments.length, post_path(post) %></th>
-          
-  </tr>
-<% end %>
-</table>
- 
-<br />
-
+<!--
+	<a class="btn btn-mini" href="#"><i class="icon-thumbs-up"></i></a>
