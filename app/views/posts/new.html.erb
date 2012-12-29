@@ -2,15 +2,23 @@
 
 
 <%= form_for(@post) do|f| %>
-<form class="form-horizontal">
+
+<% if !@post.valid? %>
+  <div class='alert alert-error'>
+    <%= @post.errors.full_messages.join('<br/>').html_safe %>
+  </div>
+<% end %>
+
+
+
   <div class="control-group">
-    <label class="control-label" >Title</label>
+    <%= f.label :title %>
     <div class="controls">
       <%= f.text_field :title %>
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" >URL</label>
+    <%= f.label :url %>
     <div class="controls">
       <%= f.text_field :url %>
     </div>
@@ -20,5 +28,7 @@
       <%= f.submit "save!" %>
     </div>
   </div>
-</form>
+
+
 <% end %>
+

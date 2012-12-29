@@ -7,15 +7,23 @@
   </tr>
 
  <%=  form_for( [@post, @comment]) do|f| %>
+  
+ 		<% if !@comment.valid? %>
+		  <div class='alert alert-error'>
+    		<%= @comment.errors.full_messages.join('<br/>').html_safe %>
+ 		</div>
+		<% end %>
+
 	
 	  <fieldset>
-	     <label>Comment here</label>
+	     <%= f.label :content , "Comment"%>
 	    <%= f.text_field :content %>
 
 	    <span class="help-block"></span>
 	   
 	    <%= f.submit "save!" %>
 	  </fieldset>
+
 	
 <% end %>
 
