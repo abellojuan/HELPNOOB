@@ -3,13 +3,6 @@
 
 <%= form_for(@post) do|f| %>
 
-<% if !@post.valid? %>
-  <div class='alert alert-error'>
-    <%= @post.errors.full_messages.join('<br/>').html_safe %>
-  </div>
-<% end %>
-
-
 
   <div class="control-group">
     <%= f.label :title %>

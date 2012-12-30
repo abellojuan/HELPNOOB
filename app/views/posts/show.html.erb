@@ -8,11 +8,7 @@
 
  <%=  form_for( [@post, @comment]) do|f| %>
   
- 		<% if !@comment.valid? %>
-		  <div class='alert alert-error'>
-    		<%= @comment.errors.full_messages.join('<br/>').html_safe %>
- 		</div>
-		<% end %>
+ 
 
 	
 	  <fieldset>

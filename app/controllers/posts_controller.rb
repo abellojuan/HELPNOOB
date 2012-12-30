@@ -18,8 +18,18 @@ class PostsController < ApplicationController
 
 	def create
 		@post=Post.new(params[:post])
-		@post.save
-		redirect_to new_post_path
+	
+	
+
+			if @post.save
+				flash[:notice] = "Your post have been submitted"
+				redirect_to new_post_path
+		    else
+		      flash[:alert] = "Your post could not be saved: " +
+		      @post.errors.full_messages.to_sentence
+		      render 'new'
+		    end
+
 	end
 
 end
