@@ -21,13 +21,15 @@
 						<i class="icon-chevron-down"></i>
 				<% end %>
 
-				<span> </span><%= link_to post.title, post.url %> 
+				<span> </span><%= display_url_link(post) %> 
 				(<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %> )
 			</br>
 			</br>
 
 
 <% end %>
+
+
 
 <!--
 	<a class="btn btn-mini" href="#"><i class="icon-thumbs-up"></i></a>
