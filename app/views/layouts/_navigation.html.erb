@@ -1,12 +1,25 @@
+
+
+
+    
+
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
     
     <%= link_to " Help Noobs", root_path, class: "brand" %> 
+	    <% if logged_in? %>
+			 <%= current_user.username %>
+			 <%= link_to"Logout", logout_path %>
+
+		<%else%>
+			<%= link_to"Register ", register_path %>
+			<%= link_to"Login", login_path %>
+            
+		<%end%>
+    
     <ul class="nav pull-right">
           
       <li><th > <%= link_to "create a new post", new_post_path %></th> </li>
     </ul>
   </div>
 </div>
-
-    

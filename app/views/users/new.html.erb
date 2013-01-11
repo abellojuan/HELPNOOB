@@ -1,0 +1,33 @@
+<h2>Register yourself</h2>
+
+<% if @user.errors.any? %>
+ <%= @user.errors.full_messages.join("<br/>").html_safe %>
+<% end %>
+
+<%= form_for @user do|f| %>
+  <div class="control-group">
+    <%= f.label :username, 'Choose a user name' %>
+    <div class="controls">
+      <%= f.text_field :username %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :usermail, 'Register with an Email'  %>
+    <div class="controls">
+      <%= f.text_field :usermail %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, 'Choose a password' %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">      
+      <%= f.submit "register!" %>
+    </div>
+  </div>
+<% end %>
+

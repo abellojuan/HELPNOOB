@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
+  
   def new
     @post = Post.where(params[:post_id]).first
     @comment =Comment.new
-
   end
 
   def create
