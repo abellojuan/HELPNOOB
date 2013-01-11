@@ -9,7 +9,7 @@ class MainController < ApplicationController
 	end
 
 	def show
-		@post=Post.find(params[:id])
+		@post=Post.where(params[:id]).first
 
 		respond_to	do |format|
 			    format.html  # show.html.erb

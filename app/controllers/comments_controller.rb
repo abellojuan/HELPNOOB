@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
   def new
-    @post = Post.find(params[:post_id]) 
+    @post = Post.where(params[:post_id]).first
     @comment =Comment.new
 
   end
 
   def create
   		  @comment =Comment.new(params[:comment])
-        @post = Post.find(params[:post_id]) 
+        @post = Post.where(params[:post_id]).first
         @comment.post_id =params[:post_id]
         
         if @comment.save
