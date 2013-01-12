@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
 
 	def show
-		@post=Post.where(params[:id]).first
+		@post=Post.where(:id => params[:post_id]).first
 		@comment=@post.comments.new      
 	end	
 
