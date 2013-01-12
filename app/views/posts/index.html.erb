@@ -13,7 +13,7 @@
 
 	<span> </span><%= display_url_link(post) %> 
 	(<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %> )
-	<%= User.find(:id => post.user_id) %> 
+	<%= User.find(:id => post.user_id).username %> 
 
 	</br>
 	</br>
