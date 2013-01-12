@@ -1,12 +1,5 @@
 <h1>Noobs problems</h1>
  
-<table>
-  <tr>
-    
-
-    
-  </tr>
- 
 <% @posts.each do |post| %>
   	<%= link_to post_votes_path(post, direction: "up"), :method => :post, class: "btn btn-mini" do %>
 	<i class="icon-chevron-up"></i>
@@ -20,6 +13,8 @@
 
 	<span> </span><%= display_url_link(post) %> 
 	(<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %> )
+	<%= User.find(:id => post.user_id) %> 
+
 	</br>
 	</br>
 
@@ -30,3 +25,4 @@
 
 <!--
 	<a class="btn btn-mini" href="#"><i class="icon-thumbs-up"></i></a>
+	Post.where(:id => params[:post_id]).first
