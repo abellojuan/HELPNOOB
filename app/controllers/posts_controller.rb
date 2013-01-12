@@ -19,7 +19,9 @@ class PostsController < ApplicationController
 
 
 	def create
+
 		@post=Post.new(params[:post])
+		@post.user_id = current_user.id
 			if @post.save
 				flash[:notice] = "Your post have been submitted"
 				redirect_to new_post_path
@@ -32,3 +34,4 @@ class PostsController < ApplicationController
 	end
 
 end
+
