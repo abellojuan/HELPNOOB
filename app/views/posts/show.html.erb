@@ -17,7 +17,7 @@
 	 <% @post.comments.each do |comment| %>
 	 	<p> <%= comment.content %> 
 	 		</br>
-	 		<%= comment.user.username %> 
+	 		<%= comment.user.username if comment && comment.user %>
 	 	</p>
 	 <% end %>
 
