@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   
+  before_filter :require_user, only: [:new, :create]
+
   def new
     @post = Post.where(:id => params[:post_id]).first
     @comment =Comment.new
@@ -9,6 +11,7 @@ class CommentsController < ApplicationController
   		  @comment =Comment.new(params[:comment])
         @post = Post.where(:id => params[:post_id]).first
         @comment.post_id =params[:post_id]
+        @comment.user_id = current_user.id
         
         if @comment.save
         flash[:notice] = "Nice, thanks for commenting"
@@ -24,6 +27,7 @@ class CommentsController < ApplicationController
   end
 
 end
+
 
 
 
