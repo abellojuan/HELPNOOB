@@ -1,0 +1,38 @@
+<h1><%= User.find(params[:id]).username  %></h1>
+<h6>joined <%= link_to "Helpnoob", root_path %> on <%= User.find(params[:id]).created_at.strftime("%B %Y") %> </h6>
+
+<h4><%= User.find(params[:id]).username%>'s posts </h4>
+<% @posts.each do |post| %>
+	<% if post.user_id=User.find(params[:id]).id  %>
+	<% my_var = 0 %>
+	  	<%= link_to post_votes_path(post, direction: "up"), :method => :post, class: "btn btn-mini" do %>
+		<i class="icon-chevron-up"></i>
+		<% end %>
+
+		<strong><span> <%= post.vote_number %> </span></strong>
+
+		<%= link_to post_votes_path(post, direction: 'down'), :method => :post, class: "btn btn-mini" do %>
+		<i class="icon-chevron-down"></i>
+		<% end %>
+
+		<span> </span><%= display_url_link(post) %> 
+		(<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %> )
+		<%=  post.user.username %> 
+
+		</br>
+		</br>
+		<% my_var += 1%>
+			<% if my_var>10 %>
+				<% break %>
+		    <% end %>
+    <% end %>
+<% end %>
+
+<h4><%= User.find(params[:id]).username%>'s comments </h4>
+	 <% @comments.each do |comment| %>
+	 	<% if comment.user_id=User.find(params[:id]).id  %>
+	 	<p> <%= comment.content %> 
+	 		</br>
+	 		<%= comment.user.username if comment && comment.user %><% end %>
+	 	</p>
+	 <% end %>

@@ -6,20 +6,23 @@
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
     
-    <%= link_to " Help Noobs", root_path, class: "brand" %> 
+    <strong><%= link_to "Fotokio", root_path, class: "brand" %> </strong>
 	    <% if logged_in? %>
 			 <%= current_user.username %>
-			 <%= link_to"Logout", logout_path %>
+			 <%= link_to"Cerrar sesión", logout_path %>
 
 		<%else%>
-			<%= link_to"Register ", register_path %>
-			<%= link_to"Login", login_path %>
+			<%= link_to"Registate", register_path %>
+			<%= "||"%>
+			<%= link_to"  Iniciar sesión", login_path %>
             
 		<%end%>
     
     <ul class="nav pull-right">
           
-      <li><th > <%= link_to "create a new post", new_post_path %></th> </li>
+      <li><th>  <%= link_to  "me gusta Fotokio", new_post_path %></th> </li>
+
+
     </ul>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<h1>Noobs problems</h1>
+<h4>Imagenes más populares de hoy</h4>
  
 <% @posts.each do |post| %>
   	<%= link_to post_votes_path(post, direction: "up"), :method => :post, class: "btn btn-mini" do %>

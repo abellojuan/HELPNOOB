@@ -12,4 +12,9 @@ class UsersController < ApplicationController
  	end
  end
 
+ def show
+ 	@posts=Post.all.reverse
+ 	@comments=Comment.all.reverse
+ end
+
 end
