@@ -1,28 +1,24 @@
-
-
-
-    
-
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
     
-    <strong><%= link_to "Fotokio", root_path, class: "brand" %> </strong>
+    <strong><%= link_to "Helpnoob", root_path, class: "brand" %> </strong>
 	    <% if logged_in? %>
 			 <%= current_user.username %>
-			 <%= link_to"Cerrar sesión", logout_path %>
+			 <%= link_to"Logout", logout_path %>
 
 		<%else%>
-			<%= link_to"Registate", register_path %>
+			<%= link_to"Register", register_path %>
 			<%= "||"%>
 			<%= link_to"  Iniciar sesión", login_path %>
             
 		<%end%>
+		
     
     <ul class="nav pull-right">
-          
-      <li><th>  <%= link_to  "me gusta Fotokio", new_post_path %></th> </li>
-
-
+      <li><th>  <%= link_to  "Popular users", users_path %></th> </li>
+      <li> <%= link_to  "||", users_path %></th></li>    
+      <li><th>  <%= link_to  "Make a post", new_post_path %></th> </li>
     </ul>
+  
   </div>
 </div>

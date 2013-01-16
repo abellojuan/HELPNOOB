@@ -4,14 +4,14 @@
 
 <%= form_tag login_path do|f| %>
   <div class="control-group">
-    <%= label_tag :username, 'User name' %>
+    <%= label_tag :username, 'Nombre de Usuario o Correo' %>
     <div class="controls">
       <%= text_field_tag :username %>
     </div>
   </div>
   
   <div class="control-group">
-    <%= label_tag :password, 'Password' %>
+    <%= label_tag :password, 'Contraseña' %>
     <div class="controls">
       <%= password_field_tag :password %>
     </div>
@@ -19,7 +19,7 @@
   
   <div class="control-group">
     <div class="controls">      
-      <%= submit_tag "login!" %>
+      <%= submit_tag "Iniciar sesión!" %>
     </div>
   </div>
 <% end %>

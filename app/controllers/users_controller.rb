@@ -3,6 +3,10 @@ class UsersController < ApplicationController
  	@user = User.new
  end
 
+ def index
+	  @users = User.all
+ end
+
  def create
  	@user=User.create(params[:user])
  	if @user.save
@@ -13,8 +17,10 @@ class UsersController < ApplicationController
  end
 
  def show
+ 	@user=User.find(params[:id])
  	@posts=Post.all.reverse
  	@comments=Comment.all.reverse
  end
 
 end
+

@@ -19,5 +19,8 @@ class SessionsController < ApplicationController
 	redirect_to login_path, notice:"You just logged out."
  end
 
+ def fotokio
+ end
+
 end
 

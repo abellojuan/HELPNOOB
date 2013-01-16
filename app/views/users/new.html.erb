@@ -1,4 +1,4 @@
-<h2>Register yourself</h2>
+<h2>Register</h2>
 
 <% if @user.errors.any? %>
  <%= @user.errors.full_messages.join("<br/>").html_safe %>
@@ -17,6 +17,14 @@
       <%= f.text_field :usermail %>
     </div>
   </div>
+
+    <div class="control-group">
+    <%= f.label :twitter, 'Connect with Twitter'  %>
+    <div class="controls">
+      <%= f.text_field :twitter %>
+    </div>
+  </div>
+
   <div class="control-group">
     <%= f.label :password, 'Choose a password' %>
     <div class="controls">
@@ -26,7 +34,7 @@
   
   <div class="control-group">
     <div class="controls">      
-      <%= f.submit "register!" %>
+      <%= f.submit "enviar!" %>
     </div>
   </div>
 <% end %>
