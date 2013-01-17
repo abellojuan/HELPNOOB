@@ -37,12 +37,14 @@
 	 	</p>
 	 <% end %>
 
-<h4><%= @user.username%>'s Twitter stream: @<%=@user.twitter %></h4>	 
-	<% if !@user.twitter.blank? %>
-		<ul>
-		<%= Twitter.user_timeline(@user.twitter.to_s).each do |status|%>
-			<li><%= status.text %></li>
-		<% end%>
-	    </ul>
-    <% end%>
+ <% if !Twitter.user_timeline(@user.twitter.to_s).empty? %>
+	<h4><%= @user.username%>'s Twitter stream: @<%=@user.twitter %></h4>	 
+		<% if !@user.twitter.blank? %>
+			<ul>
+				<% Twitter.user_timeline(@user.twitter.to_s).each do |status|%>
+					<li><%= status.text %></li>
+			<% end%>
+		    </ul>
+	    <%end%>
+ <% end%>
 
