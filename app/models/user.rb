@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :twitter
+  attr_accessible :usermail, :username, :password, :twitter
 	has_secure_password
 	has_many :posts
 	has_many :comments	
