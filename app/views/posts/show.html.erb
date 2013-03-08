@@ -1,25 +1,23 @@
- <tr>
-    <th> <%= link_to @post.title, @post.url %> </th>
-    <th> <%= @post.comments.length%></th>
-  </tr>
+<tr>
+  <th> <%= link_to @post.title, @post.url %> </th>
+  <th> <%= @post.comments.length%></th>
+</tr>
 
- <%=  form_for( [@post, @comment]) do|f| %>
-	  <fieldset>
-	     <%= f.label :content , "Comment"%>
-	    <%= f.text_field :content %>
-
-	    <span class="help-block"></span>
-	   
-	    <%= f.submit "save!" %>
-	  </fieldset>
+<%= form_for( [@post, @comment]) do|f| %>
+  <fieldset>
+    <%= f.label :content , "Comment"%>
+    <%= f.text_area :content %>
+    <span class="help-block"></span>
+    <%= f.submit "save!" %>
+  </fieldset>
 <% end %>
 
-	 <% @post.comments.each do |comment| %>
-	 	<p> <%= comment.content %> 
-	 		</br>
-	 		<%= comment.user.username if comment && comment.user %>
-	 	</p>
-	 <% end %>
+<% @post.comments.each do |comment| %>
+  <p> <%= comment.content %> 
+    </br>
+ 	<%= comment.user.username if comment && comment.user %>
+  </p>
+<% end %>
 
 
  

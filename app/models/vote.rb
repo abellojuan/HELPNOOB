@@ -1,3 +1,3 @@
 class Vote < ActiveRecord::Base
-  attr_accessible :direction
+   attr_accessible :direction
 end
