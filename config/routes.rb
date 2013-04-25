@@ -1,5 +1,7 @@
 CourseProject::Application.routes.draw do
   root to: "posts#index"
+  match 'all_times' => 'posts#all_times'
+  match 'incoming' => 'posts#incoming'
   resources :posts, only: [:show, :new, :create] do
   		resources :comments, only: [:create, :show]
   		resources :votes, only: [:create]

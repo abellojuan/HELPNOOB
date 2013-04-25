@@ -1,10 +1,17 @@
-class PostsController < ApplicationController
-      	
+class PostsController < ApplicationController	
   before_filter :require_user, only: [:new, :create]
-    
+  
     def index
-	  @posts = Post.all
+	  @posts = Post.all.sort_by{|post|-post.hotness}
 	end
+
+	def all_times
+	  @posts = Post.all.sort_by{|post|-post.vote_number}
+    end
+
+    def incoming
+    @posts = Post.order('created_at')
+    end
 
 	def show
 	  @post=Post.find(params[:id])

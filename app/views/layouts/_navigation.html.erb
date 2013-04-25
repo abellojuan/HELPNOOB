@@ -1,6 +1,7 @@
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <strong><%= link_to "Helpnoob", root_path, class: "brand" %> </strong>
+    <div class="container-fluid">
+    <strong><%= link_to "Help Noob", root_path, class: "brand" %> </strong>
 	  <% if logged_in? %>
 	    <%= current_user.username %>
 		<%= link_to"Logout", logout_path %>
@@ -18,5 +19,6 @@
         <li> <%= link_to  "||", users_path %></th></li>    
         <li><th>  <%= link_to  "Make a post", new_post_path %></th> </li>
     </ul>
+  </div>
   </div>
 </div>
