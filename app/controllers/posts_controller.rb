@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :require_user, only: [:new, :create]
   
     def index
-	  @posts = Post.all.sort_by{|post|-post.hotness}
+	  @posts = Post.order("votes_count DESC")
 	end
 
 	def all_times

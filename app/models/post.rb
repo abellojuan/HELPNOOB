@@ -26,5 +26,7 @@ class Post < ActiveRecord::Base
     long_num = order + sign * seconds.to_f / 45000
     long_num.round(7)  
   end 
+
+
 end
 
