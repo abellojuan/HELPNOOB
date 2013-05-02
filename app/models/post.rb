@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :url
+  attr_accessible :title, :url, :votes_count, :hotness_count
   validates :title, presence: true
   validates :url, presence: true
 
@@ -26,7 +26,6 @@ class Post < ActiveRecord::Base
     long_num = order + sign * seconds.to_f / 45000
     long_num.round(7)  
   end 
-
-
 end
+
 
